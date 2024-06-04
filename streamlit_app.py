@@ -1,3 +1,8 @@
+import streamlit as st
+from streamlit.components.v1 import html
+st.set_page_config(page_title="Factorization-Game",layout="wide")
+
+my_html = """
 <!DOCTYPE html>
 <html>
 
@@ -85,7 +90,7 @@
         header progress {
             width: 100%;
             accent-color: #222;
-            font-size: 13px;
+
         }
 
         header .status-score {
@@ -95,8 +100,8 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            font-size: 23px;
-            border: #ccc 1px solid;
+            font-size: 33px;
+            font-weight: 500;
             border-radius: 400px;
             color: #ef7000;
         }
@@ -145,7 +150,7 @@
             background-color: white;
             border: #ddd solid 1px;
             width: 78px;
-            padding: 20px;
+            padding: 13px;
             font-size: 34px;
             font-family: "DM Mono", sans-serif;
             border-radius: 10px;
@@ -158,6 +163,25 @@
 
         button:hover {
             filter: brightness(94%);
+        }
+
+        button:active {
+            filter: brightness(90%);
+        }
+
+        @media (max-width: 600px) {
+            .output {
+                top: 44%;
+            }
+            .container {
+                width: 400px;
+                top: calc(100% - 110px);
+            }
+
+            .container button {
+                width: 180px;
+                padding: 5px;
+            }
         }
     </style>
 </head>
@@ -174,7 +198,7 @@
     </dialog>
     <header>
         <div class="status">
-            <p>TIME:</p>
+            <p></p>
             <progress value="0" max="30"></progress>
         </div>
         <div class="status-score">
@@ -274,3 +298,6 @@
 </body>
 
 </html>
+"""
+
+html(my_html ,height=520)
