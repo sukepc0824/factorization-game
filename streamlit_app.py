@@ -184,7 +184,7 @@ my_html = """
                 max-height: 100%;
             }
             h1 {
-                font-size: 50px;
+                font-size: 56px;
             }
 
             .output {
