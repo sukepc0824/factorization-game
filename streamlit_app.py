@@ -193,7 +193,7 @@ my_html = """
             .container {
                 width: 100%;
                 gap: 2px;
-                bottom: 0px;
+                bottom: 2px;
             }
             .container button {
                 width: 49%;
@@ -293,7 +293,7 @@ my_html = """
                 document.querySelector("h1").innerText = prime_number
 
                 if (prime_number === 1) {
-                    difficulty += 1
+                    difficulty += 0.25
                     if (Number.isInteger(difficulty)) {
                         document.querySelector("h1").innerText = "!"
                         if (primes[difficulty] != undefined) {
