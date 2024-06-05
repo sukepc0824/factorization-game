@@ -331,5 +331,8 @@ st.markdown("""
             height:100% !important;
             z-index: 100000000;
          }
+         button[data-testid="manage-app-button"]{
+            display: none !important;
+         }
         </style>
         """, unsafe_allow_html=True)
