@@ -184,7 +184,7 @@ my_html = """
                 max-height: 100%;
             }
             h1 {
-                font-size: 56px;
+                font-size: 50px;
             }
 
             .output {
@@ -331,7 +331,7 @@ st.markdown("""
             height:100% !important;
             z-index: 100000000;
          }
-         button[data-testid="manage-app-button"]{
+         button[data-testid="manage-app-button"],button.styles_terminalButton__JBj5T{
             display: none !important;
          }
         </style>
