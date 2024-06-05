@@ -82,7 +82,8 @@ my_html = """
             align-items: center;
             justify-content: center;
             gap: 0px;
-            width: 540px;
+            width: 100%;
+            max-width: 540px;
         }
 
         header .status {
@@ -100,7 +101,6 @@ my_html = """
         header progress {
             width: 100%;
             accent-color: #222;
-
         }
 
         header .status-score {
@@ -180,17 +180,24 @@ my_html = """
         }
 
         @media (max-width: 600px) {
-            .output {
-                top: 44%;
+            main {
+                max-height: 100%;
             }
-            .container {
-                width: 400px;
-                top: calc(100% - 110px);
+            h1 {
+                font-size: 50px;
             }
 
+            .output {
+                top: 45%;
+            }
+            .container {
+                width: 100%;
+                gap: 2px;
+                bottom: 0px;
+            }
             .container button {
-                width: 180px;
-                padding: 5px;
+                width: 49%;
+                padding: 8px;
             }
         }
     </style>
@@ -286,7 +293,7 @@ my_html = """
                 document.querySelector("h1").innerText = prime_number
 
                 if (prime_number === 1) {
-                    difficulty += 0.25
+                    difficulty += 1
                     if (Number.isInteger(difficulty)) {
                         document.querySelector("h1").innerText = "!"
                         if (primes[difficulty] != undefined) {
