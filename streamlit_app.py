@@ -15,12 +15,22 @@ my_html = """
 
         body {
             width: 100%;
-            height: 500px;
+            height: 100%;
             margin: auto;
             position: relative;
             background: #f3f3f3;
             font-family: "DM Mono", sans-serif;
             color: #222;
+        }
+
+        main {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            max-height: 500px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
         }
 
         dialog {
@@ -136,7 +146,7 @@ my_html = """
         .container {
             position: absolute;
             left: 50%;
-            bottom: 0;
+            bottom: 20px;
             transform: translateX(-50%);
             display: flex;
             justify-content: center;
@@ -196,7 +206,8 @@ my_html = """
             <button onclick="location.reload()">Play Again</button>
         </form>
     </dialog>
-    <header>
+    <main>
+          <header>
         <div class="status">
             <p></p>
             <progress value="0" max="30"></progress>
@@ -209,7 +220,9 @@ my_html = """
         <h1></h1>
     </div>
     <div class="container">
-    </div>
+    </div>  
+    </main>
+
 
     <script>
         let primes = [2, 3, 5, 7, 11, 13]
@@ -301,3 +314,15 @@ my_html = """
 """
 
 html(my_html ,height=520)
+st.markdown("""
+        <style>
+         iframe {
+            position:fixed;
+            top: 0% !important;
+            left: 0;
+            width: 100% ;
+            height:100% !important;
+            z-index: 100000000;
+         }
+        </style>
+        """, unsafe_allow_html=True)
