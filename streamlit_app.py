@@ -184,7 +184,7 @@ my_html = """
                 max-height: calc(100%);
             }
             h1 {
-                font-size: 50px;
+                font-size: 54px;
             }
 
             button:hover {
@@ -205,7 +205,7 @@ my_html = """
             }
             .container button {
                 width: 49%;
-                padding: 6px;
+                padding: 8px;
             }
         }
     </style>
