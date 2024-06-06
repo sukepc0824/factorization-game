@@ -1,3 +1,7 @@
+import streamlit as st
+from streamlit.components.v1 import html
+st.set_page_config(page_title="Factorization-Game",layout="wide")
+my_html = """
 <!DOCTYPE html>
 <html>
 
@@ -335,3 +339,20 @@
 </body>
 
 </html>
+"""
+html(my_html ,height=520)
+st.markdown("""
+        <style>
+         iframe {
+            position:fixed !important;
+            top: 0% !important;
+            left: 0 !important;
+            width: 100% !important;
+            height:100% !important;
+            z-index: 100000000;
+         }
+         button[data-testid="manage-app-button"],button.styles_terminalButton__JBj5T{
+            display: none !important;
+         }
+        </style>
+        """, unsafe_allow_html=True)
