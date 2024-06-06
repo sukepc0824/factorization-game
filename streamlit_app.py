@@ -1,8 +1,3 @@
-import streamlit as st
-from streamlit.components.v1 import html
-st.set_page_config(page_title="Factorization-Game",layout="wide")
-
-my_html = """
 <!DOCTYPE html>
 <html>
 
@@ -30,7 +25,7 @@ my_html = """
             max-height: 500px;
             top: 50%;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
         }
 
         dialog {
@@ -183,26 +178,29 @@ my_html = """
             main {
                 max-height: calc(100%);
             }
+
             h1 {
                 font-size: 54px;
             }
 
             button:hover {
-            filter: brightness(100%);
+                filter: brightness(100%);
             }
 
             button:active {
-            filter: brightness(90%);
-        }
+                filter: brightness(90%);
+            }
 
             .output {
                 top: 45%;
             }
+
             .container {
                 width: calc(100% - 30px);
                 gap: 2px;
                 bottom: 50px;
             }
+
             .container button {
                 width: 49%;
                 padding: 8px;
@@ -222,26 +220,26 @@ my_html = """
         </form>
     </dialog>
     <main>
-          <header>
-        <div class="status">
-            <p></p>
-            <progress value="0" max="30"></progress>
+        <header>
+            <div class="status">
+                <p></p>
+                <progress value="0" max="30"></progress>
+            </div>
+            <div class="status-score">
+                0
+            </div>
+        </header>
+        <div class="output">
+            <h1></h1>
         </div>
-        <div class="status-score">
-            0
+        <div class="container">
         </div>
-    </header>
-    <div class="output">
-        <h1></h1>
-    </div>
-    <div class="container">
-    </div>  
     </main>
 
 
     <script>
         let primes = [2, 3, 5, 7, 11, 13]
-        let keybind = ["S", "D", "F", "J", "K", "L"]
+        let keybind = ["s", "d", "f", "j", "k", "l"]
         let prime_list = [2, 3, 5, 7]
         let prime_number = 1
         let difficulty = 3
@@ -289,6 +287,7 @@ my_html = """
                 let element_button = document.createElement("button")
                 element_button.innerText = value
                 element_button.setAttribute("onclick", `devide(${value})`)
+                element_button.value = value
                 document.querySelector(".container").append(element_button)
             })
         }
@@ -321,26 +320,14 @@ my_html = """
                 gameover()
             }
         }
-        document.addEventListener('keypress', keypress_ivent);
-        function keypress_ivent(e) {
-	        if(e.code === 'KeyS'){
-		        devide(2)
-	        }
-            if(e.code === 'KeyD'){
-		        devide(3)
-	        }
-            if(e.code === 'KeyF'){
-		        devide(5)
-	        }
-            if(e.code === 'KeyJ'){
-		        devide(7)
-	        }
-            if(e.code === 'KeyK'){
-		        devide(11)
-	        }
-            if(e.code === 'KeyL'){
-		        devide(13)
-	        }
+        document.addEventListener('keyup', keyup_event)
+        document.addEventListener('keydown', keydown_event)
+        function keyup_event(e) {
+            document.querySelector("[value='" + primes[keybind.indexOf(e.key)] + "']").style.filter = "brightness(100%)"
+        }
+        function keydown_event(e) {
+            devide(primes[keybind.indexOf(e.key)])
+            document.querySelector("[value='" + primes[keybind.indexOf(e.key)] + "']").style.filter = "brightness(90%)"
         }
         create_buttons()
         generate_product()
@@ -348,21 +335,3 @@ my_html = """
 </body>
 
 </html>
-"""
-
-html(my_html ,height=520)
-st.markdown("""
-        <style>
-         iframe {
-            position:fixed !important;
-            top: 0% !important;
-            left: 0 !important;
-            width: 100% !important;
-            height:100% !important;
-            z-index: 100000000;
-         }
-         button[data-testid="manage-app-button"],button.styles_terminalButton__JBj5T{
-            display: none !important;
-         }
-        </style>
-        """, unsafe_allow_html=True)
