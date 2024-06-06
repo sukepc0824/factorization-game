@@ -146,7 +146,7 @@ my_html = """
         .container {
             position: absolute;
             left: 50%;
-            bottom: 20px;
+            bottom: 0;
             transform: translateX(-50%);
             display: flex;
             justify-content: center;
@@ -181,23 +181,31 @@ my_html = """
 
         @media (max-width: 600px) {
             main {
-                max-height: 100%;
+                max-height: calc(100%);
             }
             h1 {
                 font-size: 50px;
             }
 
+            button:hover {
+            filter: brightness(100%);
+            }
+
+            button:active {
+            filter: brightness(90%);
+        }
+
             .output {
                 top: 45%;
             }
             .container {
-                width: 100%;
+                width: calc(100% - 30px);
                 gap: 2px;
-                bottom: 2px;
+                bottom: 50px;
             }
             .container button {
                 width: 49%;
-                padding: 8px;
+                padding: 6px;
             }
         }
     </style>
@@ -312,6 +320,27 @@ my_html = """
                 gameover()
             }
         }
+        document.addEventListener('keypress', keypress_ivent);
+        function keypress_ivent(e) {
+	        if(e.code === 'KeyA'){
+		        devide(2)
+	        }
+            if(e.code === 'KeyS'){
+		        devide(3)
+	        }
+            if(e.code === 'KeyD'){
+		        devide(5)
+	        }
+            if(e.code === 'KeyF'){
+		        devide(7)
+	        }
+            if(e.code === 'KeyG'){
+		        devide(11)
+	        }
+            if(e.code === 'KeyH'){
+		        devide(13)
+	        }
+        }
         create_buttons()
         generate_product()
     </script>
@@ -324,10 +353,10 @@ html(my_html ,height=520)
 st.markdown("""
         <style>
          iframe {
-            position:fixed;
+            position:fixed !important;
             top: 0% !important;
-            left: 0;
-            width: 100% ;
+            left: 0 !important;
+            width: 100% !important;
             height:100% !important;
             z-index: 100000000;
          }
