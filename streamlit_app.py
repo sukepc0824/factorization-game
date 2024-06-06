@@ -241,7 +241,7 @@ my_html = """
 
     <script>
         let primes = [2, 3, 5, 7, 11, 13]
-        let keybind = [S, D, F, J, K, L]
+        let keybind = ["S", "D", "F", "J", "K", "L"]
         let prime_list = [2, 3, 5, 7]
         let prime_number = 1
         let difficulty = 3
