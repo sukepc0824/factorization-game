@@ -241,6 +241,7 @@ my_html = """
 
     <script>
         let primes = [2, 3, 5, 7, 11, 13]
+        let keybind = [S, D, F, J, K, L]
         let prime_list = [2, 3, 5, 7]
         let prime_number = 1
         let difficulty = 3
@@ -322,22 +323,22 @@ my_html = """
         }
         document.addEventListener('keypress', keypress_ivent);
         function keypress_ivent(e) {
-	        if(e.code === 'KeyA'){
+	        if(e.code === 'KeyS'){
 		        devide(2)
 	        }
-            if(e.code === 'KeyS'){
+            if(e.code === 'KeyD'){
 		        devide(3)
 	        }
-            if(e.code === 'KeyD'){
+            if(e.code === 'KeyF'){
 		        devide(5)
 	        }
-            if(e.code === 'KeyF'){
+            if(e.code === 'KeyJ'){
 		        devide(7)
 	        }
-            if(e.code === 'KeyG'){
+            if(e.code === 'KeyK'){
 		        devide(11)
 	        }
-            if(e.code === 'KeyH'){
+            if(e.code === 'KeyL'){
 		        devide(13)
 	        }
         }
