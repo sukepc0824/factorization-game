@@ -268,6 +268,8 @@ my_html = """
         function gameover() {
             document.querySelector("dialog").showModal()
             document.querySelector(".score").innerText = score
+            document.removeEventListener("keyup", keyup_event)
+            document.removeEventListener("keydown", keydown_event)
         }
 
         function getRandomInt(max) {
