@@ -1,6 +1,7 @@
 import streamlit as st
 from streamlit.components.v1 import html
 st.set_page_config(page_title="Factorization-Game",layout="wide")
+
 my_html = """
 <!DOCTYPE html>
 <html>
@@ -243,7 +244,7 @@ my_html = """
 
     <script>
         let primes = [2, 3, 5, 7, 11, 13]
-        let keybind = ["s", "d", "f", "j", "k", "l"]
+        let keybind = ["d", "f", "g", "h", "j", "k"]
         let prime_list = [2, 3, 5, 7]
         let prime_number = 1
         let difficulty = 3
@@ -340,6 +341,7 @@ my_html = """
 
 </html>
 """
+
 html(my_html ,height=520)
 st.markdown("""
         <style>
